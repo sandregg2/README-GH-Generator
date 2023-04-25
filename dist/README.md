@@ -1,6 +1,6 @@
 # Module 9 Challenge
 
-https://github.com/sandregg2\
+https://github.com/sandregg2
  
 ![Analysis](https://img.shields.io/github/languages/top/sandregg2\/README-GH-Generator)
 ## Description
