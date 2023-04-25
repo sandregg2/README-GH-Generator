@@ -1,9 +1,10 @@
-// Included packages
 const inquirer = require('inquirer');
+// const generateMarkdown = require('./utils/generateMarkdown.js');
 const fs = require('fs');
 const generateReadme = require('./utils/generateMarkdown.js');
-// const FormData = require('form-data')
+// const { resolve } = require('path');
 
+// array of questions for user
 const prompts = [
     {
         type: "input",
@@ -31,10 +32,10 @@ const prompts = [
         message: "What are the steps required to install your project.",
         default: '',
     },
-    {
-        type: "input",
+    { 
+        type: "input", 
         name: "usage",
-        message: "Provide instructions and examples for use.", // add campability for uploading a screenshot
+        message: "Provide instructions and examples for use.", 
         default: '',
     },
     {
@@ -46,8 +47,8 @@ const prompts = [
     {
         type: "input",
         name: "tests",
-        message: "Link test files.", // Go the extra mile and write tests for your application. Then provide examples on how to run them.
-        default: '', // ofc add file upload capabilities 
+        message: "Link test files.", 
+        default: '', 
     },
     {
         type: "confirm",
@@ -90,13 +91,13 @@ const prompts = [
     },
 ]
 
-const promptUser = async () => {
+const promptUser = async () => { // async function to prompt user
     let dataObject = {};
     for (let i = 0; i < prompts.length; i++) {
         await inquirer.prompt(
             prompts[i]
         ).then(data => {
-            if (data[prompts[i].name]) { // if the prompt was answered
+            if (data[prompts[i].name]) { 
                 dataObject[prompts[i].name] = data[prompts[i].name];
             }
         })
@@ -104,7 +105,7 @@ const promptUser = async () => {
     return dataObject;
 };
 
-// include a ToC if (sections > 2) or something 
+// function to write README file
 const writeToFile = async data => {
     const markdown = await generateReadme(data);
     console.log("in writeToFile")
@@ -122,26 +123,16 @@ const writeToFile = async data => {
     });
 }
 
-// initialize app
+// function to initialize program
 const init = () => {
     return promptUser();
 }
 
-// if write to file fails
+// function call to initialize program
 const failureCallback = (err) => {
     console.log(`Error : ${err}`);
 }
 
-// Function call to initialize app
+// function call to initialize program
 init()
     .then(data => { writeToFile(data) }, failureCallback)
-
-
-// TODO:
-// Because this application won’t be deployed, 
-// you’ll also need to provide a link to a walkthrough 
-// video that demonstrates its functionality. 
-// Revisit 2.2.4: Screencastify Tutorial in Module 2 
-// of the prework as a refresher on how to record video 
-// from your computer. You’ll need to submit a link to 
-// the video and add it to the README of your project.
