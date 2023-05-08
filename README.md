@@ -11,7 +11,6 @@ Creating code that can help a user to make a README file through node in the ter
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
-* [Contributing](#contributing)
 * [Tests](#tests)
 * [Questions](#questions)
 
@@ -26,9 +25,6 @@ Creating code that can help a user to make a README file through node in the ter
 
 ## Usage
 - To create a README for user   
-
-## Contributing
-N/A
 
 ## Tests
 Video test https://drive.google.com/file/d/1wGLG1uOQNy_J7VL8gNzeSjBgHVadNiGu/view
